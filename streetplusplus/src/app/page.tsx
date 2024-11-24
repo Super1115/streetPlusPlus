@@ -1,7 +1,7 @@
 'use client';
 
-import HomePageButton from '../components/HomePageButton';
-import ProfileButton from '../components/ProfileButton';
+import HomePageButton from '@/components/HomePageButton';
+import ProfileButton from '@/components/ProfileButton';
 
 const HomePage = () => {
   return (
