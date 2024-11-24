@@ -1,4 +1,4 @@
-import "./layout.css"
+import "./globals.css"
 
 
 export const metadata = {
