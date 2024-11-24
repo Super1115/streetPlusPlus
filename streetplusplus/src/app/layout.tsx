@@ -1,3 +1,4 @@
+import { UserProvider } from "@auth0/nextjs-auth0/client"
 import "./globals.css"
 
 
@@ -12,11 +13,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html>
+      <UserProvider>
       <head>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
       </head>
       <body className="app-container">{children}</body>
+      </UserProvider>
     </html>
   )
 }
