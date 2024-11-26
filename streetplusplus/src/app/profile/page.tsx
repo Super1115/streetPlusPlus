@@ -13,14 +13,18 @@ import { getUserProfileData } from "@/services/profile.service";
       const user = await getUserProfileData();
   
       return (
+        <div className="relative w-full h-screen">
         <div className="absolute top-0 left-0 p-4">
             <LogoutButton/>
             <UserInfo 
               username={user.name ?? "ERROR"} 
               level={"17"} 
             />
-          <ReturnButton redirectUrl="/"/>
           </div>
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+            <ReturnButton redirectUrl="/" />
+      </div>
+        </div>
       );
     },
     { returnTo: "/api/auth/login" },

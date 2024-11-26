@@ -1,9 +1,14 @@
-import Map from '@/components/Map'
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import ReportPage from "@/components/ReportPage"; // The client component
+import { NextPage } from "next";
 
-export default function HomePage() {
-  return (
-    <div className="h-screen w-full">
-      <Map />
-    </div>
-  )
-}
+
+
+const Report: NextPage = withPageAuthRequired(
+  async () => {
+    return <ReportPage />;
+  },
+  { returnTo: "/api/auth/login" },
+);
+
+export default Report;

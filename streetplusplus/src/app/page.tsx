@@ -12,7 +12,7 @@ const HomePage = () => {
       {/* Buttons in the Middle */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-8 w-full h-full p-4">
         {/* Two Buttons with Redirect */}
-        <HomePageButton icon="/report.svg" alt="Icon 1" redirectUrl="/" />
+        <HomePageButton icon="/report.svg" alt="Icon 1" redirectUrl="/report" />
         <HomePageButton icon="/chart_data.svg" alt="Icon 2" redirectUrl="/" />
       </div>
     </div>
