@@ -1,3 +1,4 @@
+// ReportPage.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -7,6 +8,7 @@ import Map from "@/components/Map";
 
 const ReportPage = () => {
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
+  const [markerPosition, setMarkerPosition] = useState<[number, number] | null>(null); // State for clicked marker position
 
   useEffect(() => {
     const handleResize = (): void => {
@@ -27,14 +29,16 @@ const ReportPage = () => {
             : "relative h-full w-1/4 z-10" // Keeps UI separate for larger screens
         } bg-roadGray rounded-t-3xl md:rounded-2xl p-4 shadow-lg`}
       >
-        {/* Add your UI components here */}
+        {/* UI to display clicked marker position */}
         <h1 className="text-white text-lg">Responsive UI</h1>
-        <p className="text-gray-200">Content goes here.</p>
+        <p className="text-gray-200">
+          {markerPosition ? `Marker placed at: ${markerPosition[0].toFixed(5)}, ${markerPosition[1].toFixed(5)}` : "Click on the map to place a marker."}
+        </p>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
           <ReturnButton redirectUrl="/" />
         </div>
       </div>
-      <Map />
+      <Map setMarkerPosition={setMarkerPosition} />
 
       {/* UI Section */}
     </div>
