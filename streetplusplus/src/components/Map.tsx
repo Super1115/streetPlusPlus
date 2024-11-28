@@ -1,8 +1,9 @@
 'use client';
 
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet';
 import { useState } from 'react';
 import L from 'leaflet'; // Import Leaflet to create custom icons
+
 
 const Map = ({ setMarkerPosition }: { setMarkerPosition: React.Dispatch<React.SetStateAction<[number, number] | null>> }) => {
   const [markerPosition, setMarkerPositionState] = useState<[number, number] | null>(null); // Store marker position
@@ -33,6 +34,7 @@ const Map = ({ setMarkerPosition }: { setMarkerPosition: React.Dispatch<React.Se
       zoom={13}  // Set initial zoom level
       style={{ position: "absolute", width: '100%', height: '100%', zIndex: "1" }}  // Take up full height and width
     >
+      {/* LocateButton positioned on top of the map */}
       <MapEvents />
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
